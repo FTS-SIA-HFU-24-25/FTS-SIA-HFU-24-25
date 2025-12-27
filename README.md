@@ -6,5 +6,11 @@ It is a school project, hosted by our school Feintechnikschule in Schwenningen a
 
 ### Our developer
 In our Team, we had 4 members. Each person had been given a specific job to finish.
-  - Mirko: Hardware programming
-  - Fynn: 
+  - **Team leader** Thinh : Backend- & Frontend-Development, Project Management, Someone that push other's asses to move forward
+  - Mirko : Arduino Programming
+  - Fynn : 3D designs, electronics wirings
+  - Sergkei : Wiring, Electronics, Test-Object
+
+### Demonstration of our project
+
+[https://youtube.com/shorts/DEUS8_lVHP0?feature=share](https://youtube.com/shorts/DEUS8_lVHP0?feature=share)

@@ -14,3 +14,7 @@ In our Team, we had 4 members. Each person had been given a specific job to fini
 ### Demonstration of our project
 
 [https://youtube.com/shorts/DEUS8_lVHP0?feature=share](https://youtube.com/shorts/DEUS8_lVHP0?feature=share)
+
+## How does the vest works?
+
+User wears the vest -> Sensors takes the data -> Arduino Nano read the data and convert with ADC, then sends the data via serial to Raspberry Pi -> Raspberry Pi send udp stream to server -> Server collects the data and analyze it, then send to frontend with websocket -> Frontend receive the data and display it on the website.

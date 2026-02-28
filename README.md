@@ -17,4 +17,75 @@ In our Team, we had 4 members. Each person had been given a specific job to fini
 
 ## How does the vest works?
 
-User wears the vest -> Sensors takes the data -> Arduino Nano read the data and convert with ADC, then sends the data via serial to Raspberry Pi -> Raspberry Pi send udp stream to server -> Server collects the data and analyze it, then send to frontend with websocket -> Frontend receive the data and display it on the website.
+### Data Flow Pipeline
+
+### Data Collection (Wearable Layer)
+- The **user wears the vest**
+- Embedded **sensors** (e.g., motion, heart rate, pressure, etc.) collect raw analog signals
+
+### Microcontroller Processing (Edge Layer – Arduino)
+- **Arduino Nano**:
+  - Reads analog sensor signals
+  - Converts signals using **ADC (Analog-to-Digital Converter)**
+  - Formats the data (e.g., JSON or structured binary)
+  - Sends processed data via **Serial (UART)** to Raspberry Pi
+
+### Gateway Communication (Edge Gateway – Raspberry Pi)
+- **Raspberry Pi**:
+  - Receives data from Arduino via Serial
+  - Optionally preprocesses / validates data
+  - Streams data via **UDP** to backend server
+
+### Backend Processing (Server Layer)
+- **Server**:
+  - Receives UDP data stream
+  - Parses and analyzes sensor data
+  - Stores data if required (database)
+  - Pushes real-time updates to frontend using **WebSocket**
+
+### Visualization (Frontend Layer)
+- **Web Application**:
+  - Maintains WebSocket connection
+  - Receives processed data in real time
+  - Displays metrics, charts, and status indicators
+
+## 🏗 Architecture Diagram (Conceptual)
+
+```
+[ User ]
+↓
+[ Smart Vest Sensors ]
+↓
+[ Arduino Nano ]
+(ADC + Serial)
+↓
+[ Raspberry Pi ]
+(UDP Client)
+↓
+[ Server ]
+(Analysis + WebSocket)
+↓
+[ Frontend Web App ]
+(Real-time Visualization)
+```
+
+## Code repositories
+
+[Arduino/Raspberry Pi](https://github.com/FTS-SIA-HFU-24-25/arduino)
+> Written with Arduino IDE and Python
+
+[Frontend](https://github.com/FTS-SIA-HFU-24-25/frontend)
+> Uses SvelteJS framework
+
+[Backend](https://github.com/FTS-SIA-HFU-24-25/backend)
+> GoLang as backend server
+
+---
+*for development, test purposes*
+
+[UDP Server](https://github.com/FTS-SIA-HFU-24-25/test_udp_server)
+> Receives the data and log them into console
+
+[EKG Simulator](https://github.com/FTS-SIA-HFU-24-25/fake-ecg-sensor)
+> Send fake ekg datas
+
